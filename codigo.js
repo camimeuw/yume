@@ -20,6 +20,16 @@ function getCampo(fila, nombreCampo) {
   return key ? fila[key].trim() : "";
 }
 
+function getCampoParcial(fila, palabra) {
+  const key = Object.keys(fila).find(k => k.trim().toLowerCase().includes(palabra.toLowerCase()));
+  return key ? fila[key].trim() : "";
+}
+
+function esValorAfirmativo(valor) {
+  const v = valor.trim().toLowerCase();
+  return v === "si" || v === "sí" || v === "x" || v === "true" || v === "nuevo" || v === "1";
+}
+
 function cargarProductosDesdeExcel() {
   Papa.parse(urlGoogleSheets, {
     download: true,
@@ -29,14 +39,19 @@ function cargarProductosDesdeExcel() {
 
       productos = datosLimpios.map(fila => {
         let imagenes = fila["Archivo de imagen"] ? fila["Archivo de imagen"].split(',').map(img => img.trim()) : [""];
+        const precioDescuento = getCampo(fila, "Precio con descuento");
+        const stock = getCampo(fila, "Stock disponible");
         return {
           nombre: fila["Nombre del producto"],
           precio: fila["Precio original"],
+          precioDescuento: precioDescuento,
           img: imagenes[0],
           todasLasImagenes: imagenes,
           desc: fila["Detalle / Descripción del producto"],
           categoria: getCampo(fila, "Categoría") || "General",
-          stock: fila["Stock disponible"]
+          stock: stock,
+          sinStock: stock !== "" && parsePrecio(stock) === 0,
+          esNuevo: esValorAfirmativo(getCampoParcial(fila, "nuevo"))
         };
       });
 
@@ -77,15 +92,25 @@ function renderProductos(lista) {
   mostrarMasProductos();
 }
 
+function precioHTML(p) {
+  if (p.precioDescuento && p.precioDescuento !== p.precio) {
+    return `<span class="precio-original">${p.precio}</span> <span class="precio-descuento">${p.precioDescuento}</span>`;
+  }
+  return p.precio;
+}
+
 function crearCardProducto(p, i) {
   const card = document.createElement("div");
   card.className = "producto-card producto-nuevo";
+  if (p.sinStock) card.classList.add('agotado');
   card.innerHTML = `
     <div class="card-imagen">
+      ${p.esNuevo ? '<span class="tag-nuevo">nuevo ✦</span>' : ''}
+      ${p.sinStock ? '<span class="tag-agotado">sin stock</span>' : ''}
       <img src="${p.img}" alt="${p.nombre}">
     </div>
     <p class="card-nombre">${p.nombre}</p>
-    <p class="card-precio">${p.precio}</p>
+    <p class="card-precio">${precioHTML(p)}</p>
     <button class="card-btn">ver detalle ✦</button>
   `;
   const img = card.querySelector('img');
@@ -135,9 +160,10 @@ function abrirProducto(i) {
   imagenActualIndex = 0;
   const p = productosVisibles[i];
   mostrarImagenPopup();
-  document.getElementById("popupName").textContent = p.nombre;
-  document.getElementById("popupPrice").textContent = p.precio;
+  document.getElementById("popupName").innerHTML = p.nombre + (p.esNuevo ? ' <span class="tag-nuevo tag-nuevo-popup">nuevo ✦</span>' : '');
+  document.getElementById("popupPrice").innerHTML = precioHTML(p);
   document.getElementById("popupDesc").textContent = p.desc;
+  document.getElementById("popupStock").textContent = p.sinStock ? 'sin stock ✦' : (p.stock ? `quedan ${p.stock} ✦` : '');
   document.getElementById("overlay").classList.add("open");
 }
 
