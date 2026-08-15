@@ -874,10 +874,11 @@ body::before {
   font-size: 28px !important;
 }
 #contacto .rpg-window-inner {
-  background: transparent;
+  background: var(--blush);
 }
 #contacto .rpg-window {
-  background: transparent;
+  background: var(--blush);
+  border: 2px solid #f9b8d9;
 }
 
 .carrito-panel .rpg-window-inner {
