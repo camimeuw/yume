@@ -65,27 +65,68 @@ function filtrarPorCategoria(cat) {
   document.getElementById('tienda').scrollIntoView({ behavior: 'smooth' });
 }
 
+const PRODUCTOS_POR_PAGINA = 8;
+let productosMostrados = 0;
+
 function renderProductos(lista) {
   productosVisibles = lista || productos;
+  productosMostrados = 0;
   const grid = document.getElementById("grid");
   grid.innerHTML = "";
-  productosVisibles.forEach((p, i) => {
-    const card = document.createElement("div");
-    card.className = "producto-card";
-    card.innerHTML = `
-      <div class="card-imagen">
-        <img src="${p.img}" alt="${p.nombre}">
-      </div>
-      <p class="card-nombre">${p.nombre}</p>
-      <p class="card-precio">${p.precio}</p>
-      <button class="card-btn">ver detalle ✦</button>
-    `;
-    const img = card.querySelector('img');
-    img.onload = () => img.classList.add('cargada');
-    if (img.complete) img.classList.add('cargada');
-    card.addEventListener("click", () => abrirProducto(i));
+  document.getElementById("verMasBtn")?.remove();
+  mostrarMasProductos();
+}
+
+function crearCardProducto(p, i) {
+  const card = document.createElement("div");
+  card.className = "producto-card producto-nuevo";
+  card.innerHTML = `
+    <div class="card-imagen">
+      <img src="${p.img}" alt="${p.nombre}">
+    </div>
+    <p class="card-nombre">${p.nombre}</p>
+    <p class="card-precio">${p.precio}</p>
+    <button class="card-btn">ver detalle ✦</button>
+  `;
+  const img = card.querySelector('img');
+  img.onload = () => img.classList.add('cargada');
+  if (img.complete) img.classList.add('cargada');
+  card.addEventListener("click", () => abrirProducto(i));
+  return card;
+}
+
+function mostrarMasProductos() {
+  const grid = document.getElementById("grid");
+  const siguientes = productosVisibles.slice(productosMostrados, productosMostrados + PRODUCTOS_POR_PAGINA);
+  const cardsNuevas = [];
+
+  siguientes.forEach((p, idx) => {
+    const i = productosMostrados + idx;
+    const card = crearCardProducto(p, i);
+    card.style.transitionDelay = (idx * 0.06) + "s";
     grid.appendChild(card);
+    cardsNuevas.push(card);
   });
+
+  productosMostrados += siguientes.length;
+
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      cardsNuevas.forEach(card => card.classList.remove('producto-nuevo'));
+    });
+  });
+
+  const btnViejo = document.getElementById("verMasBtn");
+  if (btnViejo) btnViejo.remove();
+
+  if (productosMostrados < productosVisibles.length) {
+    const btn = document.createElement("button");
+    btn.id = "verMasBtn";
+    btn.className = "cta-pixel ver-mas-btn";
+    btn.textContent = "ver más ✦";
+    btn.addEventListener("click", mostrarMasProductos);
+    grid.insertAdjacentElement("afterend", btn);
+  }
 }
  let imagenActualIndex = 0;
 

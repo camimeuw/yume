@@ -229,6 +229,12 @@ body::before {
   position: relative;
   z-index: 2;
   padding: 10px 16px 60px;
+  text-align: center;
+}
+
+.ver-mas-btn {
+  border: none;
+  cursor: pointer;
 }
 
 .section-title {
@@ -261,10 +267,15 @@ body::before {
   align-items: center;
   gap: 6px;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.2s ease, opacity 0.45s ease, transform 0.35s ease;
   animation: bordeAnimado 2s ease-in-out infinite;
 }
 .producto-card:active { transform: scale(0.96); }
+
+.producto-card.producto-nuevo {
+  opacity: 0;
+  transform: translateY(16px);
+}
 
 @keyframes bordeAnimado {
   0%, 100% {
