@@ -424,7 +424,7 @@ body::before {
 .cta-pixel:active { transform: scale(0.95); }
 
 .player-seccion {
-  background: transparent;
+  background: var(--blush);
   border: 2px solid #f9b8d9;
   outline: 1px solid #f9b8d9;
   outline-offset: 2px;
@@ -654,6 +654,7 @@ body::before {
   display: flex;
   flex-direction: column;
   margin-bottom: 3px;
+  background: var(--blush);
 }
  .menu-separator {
   height: 1px;
