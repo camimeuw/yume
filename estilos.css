@@ -184,7 +184,7 @@ body::before {
   margin-right: 2px;
   cursor: pointer;
   align-self: flex-start;
-  top: -20px;
+  top: -35px;
 }
 
 @media (max-width: 480px) {
