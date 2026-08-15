@@ -57,6 +57,7 @@
 
   <div class="seccion player-seccion">
     <div class="mp3-caja">
+      <audio id="audioPlayer" src="./assets/audio/yume-radio.mp3" preload="metadata"></audio>
       <div class="mp3-ondas" id="ondas">
         <div class="onda"></div>
         <div class="onda"></div>
@@ -65,12 +66,12 @@
         <div class="onda"></div>
       </div>
       <div class="mp3-info">
-        <p class="mp3-artista">yume radio ♡</p>
-        <p class="mp3-cancion">tu canción acá</p>
+        <p class="mp3-artista">yume nikki soundtrack</p>
+        <p class="mp3-cancion" id="mp3Cancion">tu canción acá</p>
         <div class="mp3-barra">
-          <div class="mp3-progreso"></div>
+          <div class="mp3-progreso" id="mp3Progreso"></div>
         </div>
-        <p class="mp3-tiempo">0:00 / 3:24</p>
+        <p class="mp3-tiempo" id="mp3Tiempo">0:00 / 0:00</p>
         <div class="mp3-controles">
           <button class="mp3-btn">⏮</button>
           <button class="mp3-btn mp3-play" id="play-btn" onclick="togglePlay()">▶</button>
@@ -78,7 +79,7 @@
         </div>
       </div>
     </div>
-  
+
 <img src="./assets/img/decoracion.png" alt="" class="player-decor">
 
   </div>

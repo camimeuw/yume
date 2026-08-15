@@ -172,13 +172,42 @@ document.getElementById("overlay").addEventListener("click", (e) => {
   if (e.target.id === "overlay") document.getElementById("overlay").classList.remove("open");
 });
 
+const audioPlayer = document.getElementById('audioPlayer');
+
+function formatTiempo(segundos) {
+  if (!isFinite(segundos)) return '0:00';
+  const min = Math.floor(segundos / 60);
+  const seg = Math.floor(segundos % 60).toString().padStart(2, '0');
+  return `${min}:${seg}`;
+}
+
+function actualizarUITiempo() {
+  const actual = formatTiempo(audioPlayer.currentTime);
+  const total = formatTiempo(audioPlayer.duration);
+  document.getElementById('mp3Tiempo').textContent = `${actual} / ${total}`;
+  const porcentaje = audioPlayer.duration ? (audioPlayer.currentTime / audioPlayer.duration) * 100 : 0;
+  document.getElementById('mp3Progreso').style.width = porcentaje + '%';
+}
+
+audioPlayer.addEventListener('loadedmetadata', actualizarUITiempo);
+audioPlayer.addEventListener('timeupdate', actualizarUITiempo);
+audioPlayer.addEventListener('ended', () => {
+  playing = false;
+  document.getElementById('play-btn').textContent = '▶';
+  document.getElementById('ondas').classList.remove('activo');
+});
+
 function togglePlay() {
   playing = !playing;
   document.getElementById('play-btn').textContent = playing ? '■' : '▶';
-  document.querySelector('.mp3-progreso').style.animationPlayState = playing ? 'running' : 'paused';
   const ondas = document.getElementById('ondas');
-  if (playing) ondas.classList.add('activo');
-  else ondas.classList.remove('activo');
+  if (playing) {
+    ondas.classList.add('activo');
+    audioPlayer.play();
+  } else {
+    ondas.classList.remove('activo');
+    audioPlayer.pause();
+  }
 }
 
 function agregarAlCarrito(i) {
