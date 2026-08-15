@@ -714,7 +714,15 @@ body::before {
 
 /* 1. Cambia el marco/borde exterior del carrito */
 .carrito-panel .rpg-window {
-  background: #FF82B3 !important;
+  background: transparent !important;
+  padding: 0 !important;
+  clip-path: none !important;
+}
+
+.carrito-panel .rpg-window-inner {
+  background: #faf3e6 !important;
+  clip-path: none !important;
+  padding: 12px !important;
 }
 
 /* 2. Cambia la "X" de cerrar el carrito, la "X" de borrar productos y el Total */
