@@ -10,7 +10,7 @@ const urlGoogleSheets = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTTbC0Q
 
 let productos = [];
 let productosVisibles = [];
-const numeroWhatsApp = "5491100000000";
+const numeroWhatsApp = "5493462338222";
 let currentProductIndex = null;
 let carrito = [];
 let playing = false;
