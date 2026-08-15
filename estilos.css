@@ -252,8 +252,8 @@ body::before {
   }
 }
 .producto-card {
-  background: #fff0f5;
-  border: 1px solid #f9b8d9;
+  background: #faf3e6;
+  border: 1px solid var(--rose);
   padding: 8px;
   text-align: center;
   display: flex;
@@ -267,18 +267,18 @@ body::before {
 .producto-card:active { transform: scale(0.96); }
 
 @keyframes bordeAnimado {
-  0%, 100% { 
-    border-color: #f9b8d9;
-    box-shadow: 0 0 6px rgba(249, 184, 217, 0.3);
+  0%, 100% {
+    border-color: var(--rose);
+    box-shadow: 0 0 6px rgba(186, 131, 150, 0.3);
   }
-  50% { 
-    border-color: #c2185b;
-    box-shadow: 0 0 12px rgba(194, 24, 91, 0.6);
+  50% {
+    border-color: var(--wine);
+    box-shadow: 0 0 12px rgba(42, 58, 74, 0.4);
   }
 }
 
 .producto-card:hover {
-  border-color: #c2185b;
+  border-color: var(--wine);
   transform: translateY(-2px);
 }
 
