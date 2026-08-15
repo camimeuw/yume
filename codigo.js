@@ -30,6 +30,23 @@ function esValorAfirmativo(valor) {
   return v === "si" || v === "sí" || v === "x" || v === "true" || v === "nuevo" || v === "1";
 }
 
+function determinarSinStock(stockStr) {
+  if (!stockStr) return false;
+  const v = stockStr.trim().toLowerCase();
+  if (v === "") return false;
+
+  const negativos = ["no", "0", "agotado", "sin stock", "sin", "no hay", "no disponible"];
+  if (negativos.includes(v)) return true;
+
+  const positivos = ["si", "sí", "disponible", "en stock", "hay stock", "hay"];
+  if (positivos.includes(v)) return false;
+
+  const soloNumero = v.replace(/\D/g, '');
+  if (soloNumero !== "") return parseInt(soloNumero) === 0;
+
+  return false;
+}
+
 function cargarProductosDesdeExcel() {
   Papa.parse(urlGoogleSheets, {
     download: true,
@@ -50,7 +67,7 @@ function cargarProductosDesdeExcel() {
           desc: fila["Detalle / Descripción del producto"],
           categoria: getCampo(fila, "Categoría") || "General",
           stock: stock,
-          sinStock: stock !== "" && parsePrecio(stock) === 0,
+          sinStock: determinarSinStock(stock),
           esNuevo: esValorAfirmativo(getCampoParcial(fila, "nuevo"))
         };
       });
