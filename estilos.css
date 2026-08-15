@@ -55,6 +55,16 @@
   animation: apareceSuave 1.5s ease forwards;
   animation-delay: 0.3s;
 }
+@media (max-width: 768px) {
+  body {
+    background-image: url('./assets/img/fondo-tela.jpg');
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+}
+
 @keyframes apareceSuave {
   from { opacity: 0; }
   to   { opacity: 1; }
