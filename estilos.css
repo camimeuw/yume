@@ -653,7 +653,6 @@ body::before {
 .menu-mobile-wrapper {
   display: flex;
   flex-direction: column;
-  margin-bottom: 3px;
   background: var(--blush);
 }
  .menu-separator {
