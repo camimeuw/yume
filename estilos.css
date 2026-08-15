@@ -845,7 +845,7 @@ body::before {
 .medusa-2 {
   bottom: 12%;
   right: auto;
-  left: 12%;
+  left: 25%;
   width: 34px;
   animation: flotar2 8s ease-in-out infinite;
 }
