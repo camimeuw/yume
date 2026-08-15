@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges">
+  <!-- cuerpo del carrito -->
+  <rect x="6" y="6" width="2" height="2" fill="#2A3A4A"/>
+  <rect x="8" y="6" width="16" height="2" fill="#2A3A4A"/>
+  <rect x="6" y="8" width="2" height="12" fill="#2A3A4A"/>
+  <rect x="8" y="8" width="16" height="2" fill="#ba8396"/>
+  <rect x="8" y="10" width="2" height="10" fill="#2A3A4A"/>
+  <rect x="10" y="10" width="12" height="8" fill="#ba8396"/>
+  <rect x="22" y="10" width="2" height="8" fill="#2A3A4A"/>
+  <rect x="8" y="18" width="16" height="2" fill="#2A3A4A"/>
+  <rect x="24" y="8" width="2" height="2" fill="#2A3A4A"/>
+  <rect x="24" y="8" width="4" height="2" fill="#2A3A4A"/>
+  <!-- lineas internas -->
+  <rect x="13" y="12" width="2" height="4" fill="#2A3A4A"/>
+  <rect x="17" y="12" width="2" height="4" fill="#2A3A4A"/>
+  <!-- ruedas -->
+  <rect x="9" y="22" width="4" height="2" fill="#2A3A4A"/>
+  <rect x="9" y="24" width="4" height="2" fill="#2A3A4A"/>
+  <rect x="19" y="22" width="4" height="2" fill="#2A3A4A"/>
+  <rect x="19" y="24" width="4" height="2" fill="#2A3A4A"/>
+</svg>
