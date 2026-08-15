@@ -124,7 +124,7 @@ function crearCardProducto(p, i) {
     <div class="card-imagen">
       ${p.esNuevo ? '<span class="tag-nuevo">nuevo ✦</span>' : ''}
       ${p.sinStock ? '<span class="tag-agotado">sin stock</span>' : ''}
-      <img src="${p.img}" alt="${p.nombre}">
+      <img src="${p.img}" alt="${p.nombre}" loading="lazy" decoding="async">
     </div>
     <p class="card-nombre">${p.nombre}</p>
     <p class="card-precio">${precioHTML(p)}</p>
