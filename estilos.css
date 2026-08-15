@@ -160,11 +160,12 @@ body::before {
 }
 
 .header-gif-img {
-  width: 140px;
-  max-width: 35vw;
+  width: 160px;
+  max-width: 40vw;
   flex-shrink: 1;
   display: block;
   object-fit: cover;
+  margin-left: auto;
 }
 
 .logo-img {
