@@ -176,12 +176,12 @@ body::before {
 }
 
 .logo-img {
-  height: 180px;
-  max-width: 45vw;
+  height: 200px;
+  max-width: 48vw;
   width: auto;
   display: block;
   position: relative;
-  left: -2px;
+  left: 10px;
   animation: float 3s ease-in-out infinite;
   flex-shrink: 0;
 }
