@@ -1,0 +1,157 @@
+ <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>yume — accesorios</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&family=Klee+One:wght@400;600&family=Nunito:wght@400;600;700&family=DotGothic16&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./estilos.css">
+</head>
+<body>
+ <div class="dream-veil" id="dreamVeil">
+  <img src="./assets/img/carga.gif" alt="" class="dream-veil-gif">
+  <p class="dream-veil-texto">✦ entrando a tu sueño ✦</p>
+</div>
+
+  <div class="scanlines"></div>
+
+  <header class="top-header">
+    <img src="./assets/img/titulo.png" alt="yume" class="logo-img">
+    <div class="header-text">
+      <img src="./assets/img/yume.gif" alt="yume" class="header-gif-img">
+
+    </div>
+    
+    <div class="carrito-wrapper" id="botonCarrito">
+      <img src="./assets/img/estrella.png" alt="carrito" class="carrito-icon">
+      <span class="carrito-badge" id="carritoBadge">0</span>
+    </div>
+  </header>
+   <div class="menu-separator"></div>
+ <div class="marquee-bar">
+  <div class="marquee-texto">
+⋆.✮⋆˚ tesoros perdidos en un sueño ⋆.˚𖦹⋆ envíos a todo el país ⋆.✮⋆.✮⋆˚ tesoros perdidos en un sueño ⋆.˚𖦹⋆ envíos a todo el país ⋆.✮⋆˚
+  </div>
+</div>
+  <!-- ===== MENÚ NUEVO CON LA LLAVE Y BOTONES SEPARADOS ===== -->
+   <!-- ===== MENÚ NUEVO CON TEXTO ===== -->
+  <div class="menu-mobile-wrapper">
+    <div style="display: flex; align-items: center; padding-left: 16px; gap: 8px;">
+
+      
+      <button class="menu-btn" onclick="document.getElementById('menuMobile').classList.toggle('abierto')">
+        <span></span><span></span><span></span>
+      </button>
+      <img src="./assets/img/llave.png" alt="llave" class="llave-decor">
+      <!-- ✦ EL TEXTO NUEVO AL LADO DE LA LLAVE ✦ -->
+      <span class="menu-slogan">menu</span>
+    </div>
+
+    <div class="menu-mobile" id="menuMobile">
+      <a href="#">✦ inicio</a>
+      <a href="#">✦ contacto</a>
+    </div>
+  </div>
+
+
+  <div class="seccion player-seccion">
+    <div class="mp3-caja">
+      <div class="mp3-ondas" id="ondas">
+        <div class="onda"></div>
+        <div class="onda"></div>
+        <div class="onda"></div>
+        <div class="onda"></div>
+        <div class="onda"></div>
+      </div>
+      <div class="mp3-info">
+        <p class="mp3-artista">yume radio ♡</p>
+        <p class="mp3-cancion">tu canción acá</p>
+        <div class="mp3-barra">
+          <div class="mp3-progreso"></div>
+        </div>
+        <p class="mp3-tiempo">0:00 / 3:24</p>
+        <div class="mp3-controles">
+          <button class="mp3-btn">⏮</button>
+          <button class="mp3-btn mp3-play" id="play-btn" onclick="togglePlay()">▶</button>
+          <button class="mp3-btn">⏭</button>
+        </div>
+      </div>
+    </div>
+  
+<img src="./assets/img/decoracion.png" alt="" class="player-decor">
+
+  </div>
+
+  <main>
+         <section id="tienda">
+      <p class="section-title">✦ catálogo ✦</p>
+      <div class="productos-grid" id="grid"></div>
+    </section>
+  <section id="contacto">
+  <div class="rpg-window contacto-window">
+    <div class="rpg-window-inner contacto-inner">
+      <img src="./assets/img/contacto.gif" alt="" class="contacto-gif">
+      <div class="contacto-contenido">
+        <p class="section-title">✦ contacto ✦</p>
+        <p class="contacto-texto">un objeto perdido y encontrado en un sueño... escribinos ✦</p>
+        <a class="cta-pixel" href="https://wa.me/5491100000000" target="_blank">whatsapp</a>
+        <a class="cta-pixel" href="https://instagram.com/yumeproyect222" target="_blank">instagram</a>
+      </div>
+    </div>
+  </div>
+</section>
+ </main>
+
+  <div class="popup-overlay" id="overlay">
+    <div class="rpg-window popup-window">
+      <div class="rpg-window-inner popup-inner">
+        <button class="popup-close" id="closePopup">×</button>
+         <div class="popup-img-wrapper">
+   <div class="popup-img-wrapper">
+  <img id="popupImg" class="popup-img" src="" alt="">
+  <button class="popup-nav popup-prev" onclick="cambiarImagen(-1)">‹</button>
+  <button class="popup-nav popup-next" onclick="cambiarImagen(1)">›</button>
+  <div class="popup-dots" id="popupDots"></div>
+</div>
+  <button class="popup-nav popup-prev" onclick="cambiarImagen(-1)">‹</button>
+  <button class="popup-nav popup-next" onclick="cambiarImagen(1)">›</button>
+  <div class="popup-dots" id="popupDots"></div>
+</div>
+        <h3 id="popupName" class="popup-name"></h3>
+        <p id="popupPrice" class="popup-price"></p>
+        <p id="popupDesc" class="popup-desc"></p>
+         <button class="cta-pixel" onclick="agregarAlCarrito(currentProductIndex)">+ agregar al carrito</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="carrito-panel" id="carritoPanel">
+    <div class="rpg-window carrito-window">
+      <div class="rpg-window-inner">
+        <button id="cerrarCarritoBtn" style="position: absolute; right: 10px; top: 10px; background: none; border: none; cursor: pointer; color: var(--wine); font-weight: bold;">✕</button>
+        <p class="carrito-titulo">tu carrito ✮⋆˙</p>
+        <div class="medusa medusa-1"></div>
+<div class="medusa medusa-2"></div>
+       <div id="carritoItems" class="carrito-items"></div>
+        <p class="carrito-total" id="carritoTotal"></p>
+        <a id="carritoWA" class="cta-pixel" href="#" target="_blank">pedir por WhatsApp</a>
+      </div>
+    </div>
+  </div>
+
+   <!-- Acá agregamos a PapaParse (el traductor de Excel a Código) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+  
+  <!-- Acá conectamos tu archivo JS -->
+  <script src="./codigo.js"></script>
+</body>
+</html>
+
+
+
+  <script src="./codigo.js"></script>
+  
+  
+</body>
+</html>
