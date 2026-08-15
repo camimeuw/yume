@@ -340,12 +340,11 @@ body::before {
 }
 .popup-overlay.open { display: flex; }
 
-.popup-window { width: 100%; max-width: 340px;
-
- background-image: url('./assets/img/fondo-producto.jpg');
-  background-size: cover;
-  background-position: center;
-  
+.popup-window {
+  width: 100%;
+  max-width: 340px;
+  background-image: none;
+  background-color: #faf3e6;
 }
 .popup-inner { position: relative; text-align: center; }
 
