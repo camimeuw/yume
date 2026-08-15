@@ -751,7 +751,9 @@ body::before {
 
 /* 3. Cambia el color del botón final "pedir por WhatsApp" */
 .carrito-panel .cta-pixel {
-  background: #8A9A86 !important;
+  background: var(--rose) !important;
+  color: #000 !important;
+  font-size: 17px !important;
 }
  .carrito-badge {
   background: #8A9A86 !important;
