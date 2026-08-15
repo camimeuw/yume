@@ -156,22 +156,42 @@ body::before {
   background-image: url('./assets/img/fondo.jpg');
   background-size: cover;
   background-position: center;
+  overflow: hidden;
 }
 
 .header-gif-img {
   width: 120px;
-  flex-shrink: 0;
+  max-width: 28vw;
+  flex-shrink: 1;
   display: block;
   object-fit: cover;
 }
 
 .logo-img {
   height: 160px;
+  max-width: 38vw;
   width: auto;
   display: block;
   position: relative;
   left: -2px;
   animation: float 3s ease-in-out infinite;
+}
+
+@media (max-width: 480px) {
+  .top-header {
+    gap: 8px;
+    padding: 14px 12px;
+  }
+  .logo-img {
+    height: 110px;
+  }
+  .header-gif-img {
+    width: 90px;
+  }
+  .carrito-icon {
+    width: 60px;
+    height: 60px;
+  }
 }
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
