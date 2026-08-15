@@ -269,11 +269,11 @@ body::before {
 @keyframes bordeAnimado {
   0%, 100% {
     border-color: var(--rose);
-    box-shadow: 0 0 6px rgba(186, 131, 150, 0.3);
+    box-shadow: 0 0 6px rgba(250, 243, 230, 0.5);
   }
   50% {
-    border-color: var(--wine);
-    box-shadow: 0 0 12px rgba(42, 58, 74, 0.4);
+    border-color: var(--rose);
+    box-shadow: 0 0 16px rgba(255, 255, 255, 0.8);
   }
 }
 
