@@ -441,6 +441,7 @@ body::before {
   opacity: 0.7; /* ✦ TU IMAGEN TRANSPARENTE ✦ */
 }
 .mp3-caja {
+  background-color: var(--blush);
   background-size: cover;
   background-position: center;
   border: 3px outset #C1A6B4;
