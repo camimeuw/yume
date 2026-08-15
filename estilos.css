@@ -159,13 +159,19 @@ body::before {
   overflow: hidden;
 }
 
+.header-text {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  min-width: 0;
+}
+
 .header-gif-img {
   width: 220px;
   max-width: 55vw;
   flex-shrink: 0;
   display: block;
   object-fit: cover;
-  margin-left: auto;
 }
 
 .logo-img {
