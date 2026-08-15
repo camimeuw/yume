@@ -480,8 +480,8 @@ body::before {
   gap: 16px;
 }
 .player-estrella {
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 60px;
   object-fit: contain;
   flex-shrink: 0;
   animation: float 3s ease-in-out infinite;
@@ -988,8 +988,8 @@ body::before {
     padding: 16px 24px;
   }
   .player-estrella {
-    width: 50px;
-    height: 50px;
+    width: 80px;
+    height: 80px;
   }
   #tienda {
     max-width: 1100px;
