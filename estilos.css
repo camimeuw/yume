@@ -155,7 +155,7 @@ body::before {
   align-items: center;
   gap: 8px;
   padding: 16px 8px;
-  background-image: url('./assets/img/fondo.jpg');
+  background-image: url('./assets/img/fondo-header-nuevo.jpg');
   background-size: cover;
   background-position: center;
   overflow: hidden;
