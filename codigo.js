@@ -80,6 +80,9 @@ function renderProductos(lista) {
       <p class="card-precio">${p.precio}</p>
       <button class="card-btn">ver detalle ✦</button>
     `;
+    const img = card.querySelector('img');
+    img.onload = () => img.classList.add('cargada');
+    if (img.complete) img.classList.add('cargada');
     card.addEventListener("click", () => abrirProducto(i));
     grid.appendChild(card);
   });

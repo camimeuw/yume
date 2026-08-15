@@ -487,9 +487,8 @@ body::before {
 .carrito-wrapper {
   position: relative;
   margin-left: auto;
-  margin-right: -10px;
-  top: -46px;
   cursor: pointer;
+  align-self: center;
 }
 .carrito-icon {
   width: 79px;
@@ -507,8 +506,8 @@ body::before {
 }
 .carrito-badge {
   position: absolute;
-  top: -4px;
-  right: -4px;
+  top: 5px;
+  right: 0px;
   background: var(--wine);
   color: var(--blush);
   font-family: var(--font-pixel);
