@@ -506,8 +506,8 @@ body::before {
 }
 .carrito-badge {
   position: absolute;
-  top: 5px;
-  right: 0px;
+  top: 8px;
+  left: -8px;
   background: var(--wine);
   color: var(--blush);
   font-family: var(--font-pixel);
