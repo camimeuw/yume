@@ -475,7 +475,7 @@ body::before {
   outline-offset: 2px;
   padding: 8px;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
 }
 .player-decor {
   width: 100px;
@@ -980,7 +980,7 @@ body::before {
   .player-seccion {
     max-width: 1100px;
     margin: 0 auto;
-    justify-content: space-between;
+    justify-content: center;
     padding: 16px 24px;
   }
   .player-decor {
