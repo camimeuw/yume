@@ -160,9 +160,9 @@ body::before {
 }
 
 .header-gif-img {
-  width: 160px;
-  max-width: 40vw;
-  flex-shrink: 1;
+  width: 180px;
+  max-width: 45vw;
+  flex-shrink: 0;
   display: block;
   object-fit: cover;
   margin-left: auto;
