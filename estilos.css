@@ -805,6 +805,10 @@ body::before {
   min-width: 0;
   text-align: center;
 }
+
+.contacto-title {
+  font-size: 28px !important;
+}
 #contacto .rpg-window-inner {
   background: transparent;
 }
