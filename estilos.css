@@ -151,8 +151,8 @@ body::before {
   z-index: 2;
   display: flex;
   align-items: center;
-  gap: 14px;
-  padding: 16px 20px;
+  gap: 8px;
+  padding: 16px 8px;
   background-image: url('./assets/img/fondo.jpg');
   background-size: cover;
   background-position: center;
@@ -160,33 +160,42 @@ body::before {
 }
 
 .header-gif-img {
-  width: 120px;
-  max-width: 28vw;
+  width: 140px;
+  max-width: 35vw;
   flex-shrink: 1;
   display: block;
   object-fit: cover;
 }
 
 .logo-img {
-  height: 160px;
-  max-width: 38vw;
+  height: 180px;
+  max-width: 45vw;
   width: auto;
   display: block;
   position: relative;
   left: -2px;
   animation: float 3s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+.carrito-wrapper {
+  position: relative;
+  margin-left: auto;
+  margin-right: 2px;
+  cursor: pointer;
+  align-self: center;
 }
 
 @media (max-width: 480px) {
   .top-header {
-    gap: 8px;
-    padding: 14px 12px;
+    gap: 6px;
+    padding: 12px 6px;
   }
   .logo-img {
-    height: 110px;
+    height: 130px;
   }
   .header-gif-img {
-    width: 90px;
+    width: 100px;
   }
   .carrito-icon {
     width: 60px;
