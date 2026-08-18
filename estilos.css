@@ -845,6 +845,10 @@ body::before {
 #contacto {
   padding: 30px 16px 60px;
   text-align: center;
+  background-image: url('./assets/img/fondo-tienda.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 .contacto-window { max-width: 320px; margin: 0 auto; }
 .contacto-texto {
